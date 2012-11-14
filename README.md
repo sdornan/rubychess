@@ -1,0 +1,4 @@
+rubychess
+=========
+
+Chess with Ruby
