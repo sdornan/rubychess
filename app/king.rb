@@ -20,6 +20,18 @@ module Chess
       moves.select {|square| square =~ /^[a-h][1-8]$/}
     end
 
+    def in_check(board, position)
+      8.downto(1) do |r|
+        "a".upto("h") do |f|
+          current = "#{f}#{r}"
+          if board.squares[current] and board.squares[current].captures(board, current).include?(position)
+            true
+          end
+        end
+      end
+      false
+    end
+
     def to_s
       if @color == :white
         "♔"

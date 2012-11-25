@@ -14,4 +14,10 @@ class TestPawn < Test::Unit::TestCase
     # Once it's moved, then it can only move forward one space
     assert_equal(@board.squares["a3"].moves(@board, "a3"), ["a4"])
   end
+
+  def test_captures
+    @board.move("c2", "c4")
+    @board.move("d7", "d5")
+    assert(@board.squares["c4"].captures(@board, "c4").include?("d5"), "Capture is incorrect.")
+  end
 end

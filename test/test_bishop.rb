@@ -15,4 +15,12 @@ class TestBishop < Test::Unit::TestCase
     # After pawns have moved, bishop should be able to move along two diagonals
     assert_equal(["e2", "d3", "c4", "b5", "a6", "g2", "h3"], @board.squares["f1"].moves(@board, "f1"))
   end
+
+  def test_captures
+    @board.move("e2", "e3")
+    @board.move("d7", "d6")
+    @board.move("f1", "b5")
+    assert_equal(["e8"], @board.squares["b5"].captures(@board, "b5"))
+  end
+
 end

@@ -131,6 +131,10 @@ module Chess
     end
 
     def diagonal_moves(square)
+      if @squares[square].nil?
+        puts 'There is no piece there.'
+      end
+
       file = square[0]
       rank = square[1].to_i
 
