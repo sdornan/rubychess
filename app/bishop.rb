@@ -15,10 +15,5 @@ module Chess
       end
     end
 
-    def captures(board, position)
-      puts super
-      super
-    end
-
   end
 end
